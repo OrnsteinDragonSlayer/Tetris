@@ -157,7 +157,7 @@ def draw_next_figure(figure, surface):
     form = figure.form[figure.rotation % len(figure.form)]
 
     x = top_left_x + play_width + 50
-    draw_text(surface, 'Следующая фигура:', 20, ('white') ,x, sy + 50)
+    draw_text(surface, 'Next figure:', 20, ('white') ,x, sy + 50)
 
     for i, line in enumerate(form):
         for j, column in enumerate(list(line)):
@@ -247,13 +247,13 @@ def update_score(nscore):
 
 def draw_window(surface, grid, score=0, last_score = 0):
     x, y = s_width // 3, s_height // 30
-    draw_text(surface, 'Тетрис', 50, ('white'), x, y)
+    draw_text(surface, 'Tetris', 50, ('white'), x, y)
 
     x, y = s_width - 400, s_height - 500
-    draw_text(surface, 'Счёт:', 20, ('white'), x, y)
+    draw_text(surface, 'Score:', 20, ('white'), x, y)
     draw_text(surface, str(score), 20, ('white'), x + 100, y)
 
-    draw_text(surface, 'Лучший счёт:', 20, ('white'), x, y + 50)
+    draw_text(surface, 'Best score:', 20, ('white'), x, y + 50)
     draw_text(surface, str(last_score), 20, ('white'), x + 200, y + 50)
 
     for i in range(len(grid)):
@@ -273,15 +273,15 @@ def draw_text(surface, text, size, color, x, y):
 
 
 def draw_main_menu(surface):
-    draw_text(surface, 'Добро пожаловать в игру тетрис!', 20, ('white'), s_width // 4, s_height // 10)
-    draw_text(surface, 'Цель игры - заполнять падающими', 18, ('white'), s_width // 4, s_height // 6 + 20)
-    draw_text(surface, 'фигурами все клетки в строке', 18, ('white'), s_width // 4 + 20, s_height // 4 - 20)
-    draw_text(surface, 'Управление:', 18, ('white'), s_width // 4, s_height // 4 + 40)
-    draw_text(surface, 'W - поворот фигуры', 18, ('white'), s_width // 4 + 20, s_height // 4 + 80)
-    draw_text(surface, 'A - на одну клетку влево', 18, ('white'), s_width // 4 + 20, s_height // 4 + 100)
-    draw_text(surface, 'S - на одну клетку вниз', 18, ('white'), s_width // 4 + 20, s_height // 4 + 120)
-    draw_text(surface, 'D - на одну клетку вправо', 18, ('white'), s_width // 4 + 20, s_height // 4 + 140)
-    draw_text(surface, 'Для продолжения нажмите любую кнопку', 20, ('white'), s_width // 5, s_height - 200)
+    draw_text(surface, 'Welcome to the "Tetris" game!', 20, ('white'), s_width // 4, s_height // 10)
+    draw_text(surface, 'Main goal - fill all cells in a row', 18, ('white'), s_width // 4, s_height // 6 + 20)
+    draw_text(surface, 'with falling figures', 18, ('white'), s_width // 4 + 20, s_height // 4 - 20)
+    draw_text(surface, 'Control:', 18, ('white'), s_width // 4, s_height // 4 + 40)
+    draw_text(surface, 'W - rotate figure', 18, ('white'), s_width // 4 + 20, s_height // 4 + 80)
+    draw_text(surface, 'A - move left', 18, ('white'), s_width // 4 + 20, s_height // 4 + 100)
+    draw_text(surface, 'S - move down', 18, ('white'), s_width // 4 + 20, s_height // 4 + 120)
+    draw_text(surface, 'D - move right', 18, ('white'), s_width // 4 + 20, s_height // 4 + 140)
+    draw_text(surface, 'Press any button to continue', 20, ('white'), s_width // 5, s_height - 200)
 
 
 def game(screen):
@@ -363,7 +363,7 @@ def game(screen):
         pygame.display.update()
 
         if check_lost(locked_positions):
-            draw_text(screen, 'Вы проиграли!', 60, ('white'), s_width // 6, s_height // 2)
+            draw_text(screen, 'You lose!', 60, ('white'), s_width // 6, s_height // 2)
             pygame.display.update()
             pygame.time.delay(2000)
             game_music.stop()
@@ -374,7 +374,7 @@ def game(screen):
 def main_menu():
     pygame.init()
     screen = pygame.display.set_mode((s_width, s_height))
-    pygame.display.set_caption('Тетрис')
+    pygame.display.set_caption('Tetris')
     main_menu_music = pygame.mixer.Sound('data/music/main_menu.mp3')
     main_menu_music.play(-1)
     running = True
